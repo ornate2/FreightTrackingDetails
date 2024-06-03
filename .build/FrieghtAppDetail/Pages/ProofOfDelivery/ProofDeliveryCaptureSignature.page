@@ -1,0 +1,83 @@
+{
+    "Caption": "Signature",
+     "ActionBar": {
+        "Items": [
+            {
+                "Position": "left",
+                "SystemItem": "Cancel",
+                "OnPress": "/FrieghtAppDetail/Actions/ClosePage.action"
+            },
+            {
+                "Position": "right",
+                "SystemItem": "Done",
+                "OnPress": "/FrieghtAppDetail/Rules/ProofOfDelivery/PostProofOfDelivery.js"
+            }
+        ]
+    },
+    "Controls": [
+        {
+        "Sections": [
+            {
+            "Controls": [{
+                "_Type": "Control.Type.FormCell.InlineSignatureCapture",
+                "_Name": "SignatureCaptureFormCell",
+                "Caption": "Add Signature",
+                "ShowTimestampInImage": true,
+                "ShowXMark": true,
+                "ShowUnderline": true,
+                "WatermarkText":  "",
+                "WatermarkTextMaxLines": 5,
+                "TimestampFormatter": "MM/dd/yy hh:mm a zzz",
+                "HelperText": "",
+                "OnValueChange": ""
+            }]
+        },{
+                    "_Type": "Section.Type.FormCell",
+                    "_Name": "FormCellSection5",
+                    "Controls": [
+                        {
+                            "Caption":"Attachment Description",
+                            "PlaceHolder": "Attachment Description",
+                            "IsEditable": true,
+                            "IsVisible": false,
+                            "_Name": "AttachmentDescription",
+                            "Value": "",
+                            "OnValueChange": "",
+                            "_Type": "Control.Type.FormCell.SimpleProperty"
+                        },
+                         {
+                            "_Type": "Fragment",
+                            "Fragment": "/FrieghtAppDetail/Fragments/Documents/DocumentFormCell.fragment",
+                            "Properties": {
+                                "Value": "",
+                                "OnValueChange": "",
+                                "IsEditable": true,
+                                "IsVisible": true                         
+                            }
+                        }
+                    ]
+                },
+                {
+                    "_Type": "Section.Type.FormCell",
+                    "_Name": "FormCellSection6",
+                    "Controls": [
+                        {
+                            "Caption":"Mail ID",
+                            "PlaceHolder": "Enter mail id",
+                            "IsEditable": true,
+                            "IsVisible": "/FrieghtAppDetail/Rules/ProofOfDelivery/IsEmailSectionVisible.js",
+                            "KeyboardType": "Email",
+                            "_Name": "captureemail",
+                            "_Type": "Control.Type.FormCell.SimpleProperty"
+                        }
+                    ]
+                }
+        ],
+            "_Name": "FormCellContainer",
+            "_Type": "Control.Type.FormCellContainer"
+        }
+        
+    ],
+    "_Type": "Page",
+    "_Name": "SignatureControlPage"
+}

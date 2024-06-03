@@ -1,0 +1,11 @@
+{
+    "_Name": "Attachment",
+    "_Type": "Control.Type.FormCell.Attachment",
+    "AttachmentTitle": "Attach Files",
+    "AttachmentAddTitle": "Add",
+    "AttachmentCancelTitle": "Cancel",
+    "AttachmentActionType": ["AddPhoto", "TakePhoto", "SelectFile"],
+    "AllowedFileTypes": [],
+    "OnValueChange": "",
+    "Value": []
+}

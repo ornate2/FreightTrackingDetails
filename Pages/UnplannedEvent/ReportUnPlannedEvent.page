@@ -1,0 +1,53 @@
+{
+    "ActionBar": {
+        "Items": [
+            {
+                "Position": "right",
+                "SystemItem": "Done",
+                "OnPress": "/FrieghtAppDetail/Actions/UnplannedEvent/UnplannedEventCreateRequired.action"
+            }
+        ]
+    },
+    "Controls": [
+        {
+            "Sections": [
+                {
+                    "Header": {
+                        "UseTopPadding": false
+                    },
+                    "Caption": "",
+                    "Controls": [
+                        {
+                            "_Name": "EventPkr",
+                            "_Type": "Control.Type.FormCell.ListPicker",
+                            "Caption": "Unplanned Event",
+                            "AllowMultipleSelection": false,
+                            "AllowDefaultValueIfOneItem": true,
+                            "IsPickerDismissedOnSelection": true,
+                            "IsSearchCancelledAfterSelection": true,
+                            "PickerItems": "/FrieghtAppDetail/Rules/UnplannedEvent/UnplannedEventCodeListPicker.js",
+                            "IsEditable": true,
+                            "Value": ""
+                        },
+                        {
+                            "_Name": "ReasonCodePkr",
+                            "_Type": "Control.Type.FormCell.ListPicker",
+                            "Caption": "Reason Code",
+                            "AllowMultipleSelection": false,
+                            "AllowDefaultValueIfOneItem": true,
+                            "IsPickerDismissedOnSelection": true,
+                            "IsSearchCancelledAfterSelection": true,
+                            "PickerItems": "/FrieghtAppDetail/Rules/UnplannedEvent/UnplannedEventReasonCodeListPicker.js",
+                            "IsEditable": true,
+                            "Value": ""
+                        }
+                    ]
+                }
+            ],
+            "_Name": "FormCellContainer",
+            "_Type": "Control.Type.FormCellContainer"
+        }
+    ],
+    "_Type": "Page",
+    "_Name": "UnplannedUpdatePage"
+}

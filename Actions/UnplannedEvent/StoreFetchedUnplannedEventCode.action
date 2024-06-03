@@ -1,0 +1,14 @@
+{
+	"_Type": "Action.Type.RestService.SendRequest",
+	"ActionResult": {
+		"_Name": "StoreFetchedEventCode"
+	},
+	"Target": {
+		"Service": "/FrieghtAppDetail/Services/FrieghtRestSrv.service",
+		"Path": "/unplannedEvents",
+		"OutputPath": "/value",
+		"RequestProperties": {
+			"Method": "GET"
+		}
+	}
+}

@@ -1,0 +1,81 @@
+{
+    "Caption": "",
+	"OnLoaded": "",
+	"ActionBar":
+	{
+		"Items":
+		[{
+			"Position": "left",
+			"SystemItem": "Cancel",
+			"OnPress": "/FrieghtAppDetail/Actions/ClosePage.action"
+		},
+		{
+			"Position": "right",
+			"SystemItem": "Done",
+            "Text": "Done",
+			"OnPress": "/FrieghtAppDetail/Actions/ProofOfDelivery/MaterialItemUpdateRest.action"
+		}]
+	},
+	"Controls":
+	[{
+		"Sections":
+		[{
+			"Controls":
+			[{
+                "Value": "{itemDesc}",
+                "_Name": "Item Description",
+                "Caption": "Item Description",
+                "_Type": "Control.Type.FormCell.SimpleProperty",
+                "IsEditable": false,
+                "IsVisible": true
+            },
+			{
+                "Value": "{itemNo}",
+                "_Name": "ItemNo",
+                "Caption": "Item No:.",
+                "_Type": "Control.Type.FormCell.SimpleProperty",
+                "IsEditable": false,
+                "IsVisible": true
+            },
+			{
+                "Value": "{productId}",
+                "_Name": "ProductId",
+                "Caption": "Product ID",
+                "_Type": "Control.Type.FormCell.SimpleProperty",
+                "IsEditable": false,
+                "IsVisible": true
+            },
+			{
+           
+                "Value": "{category}",
+                "_Name": "Category",
+                "Caption": "Category",
+                "_Type": "Control.Type.FormCell.SimpleProperty",
+                "IsEditable": false,
+                "IsVisible": true
+            },
+			{
+           
+                "Value": "/FrieghtAppDetail/Rules/ProofOfDelivery/FormatRecievedQuantity.js",
+                "_Name": "Quantity",
+                "Caption": "Quantity",
+                "_Type": "Control.Type.FormCell.SimpleProperty",
+                "IsEditable": true,
+                "IsVisible": true
+            },
+			{
+           
+                "Value": "{uom}",
+                "_Name": "Unit of measure",
+                "Caption": "UOM",
+                "_Type": "Control.Type.FormCell.SimpleProperty",
+                "IsEditable": false,
+                "IsVisible": true
+            }]
+        }],
+		"_Name": "FormCellContainer",
+		"_Type": "Control.Type.FormCellContainer"
+	}],
+	"_Type": "Page",
+	"_Name": "MaterialUpdatePage"
+}

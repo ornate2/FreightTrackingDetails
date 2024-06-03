@@ -1,0 +1,14 @@
+{
+	"_Type": "Action.Type.RestService.SendRequest",
+	"ActionResult": {
+		"_Name": "StoreFetchedShipmentDetail"
+	},
+	"Target": {
+		"Service": "/FrieghtAppDetail/Services/FrieghtRestSrv.service",
+		"Path": "/FrieghtAppDetail/Rules/Shipment/BuildShipmentPath.js",
+		"OutputPath": "/value",
+		"RequestProperties": {
+			"Method": "GET"
+		}
+	}
+}

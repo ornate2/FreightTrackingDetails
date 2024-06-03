@@ -1,0 +1,40 @@
+{
+	"Onboarding": {
+		"Schema": "sapmobilesvcs",
+		"TimeZone": "UTC",
+		"URL": ""
+	},
+	"CF": {
+		"Target": "https://api.cf.us10-001.hana.ondemand.com",
+		"Organization": "1d83ae9e-ab52-452e-bbd4-a8e4f5dc41f3",
+		"Space": "602083b7-bff4-4166-aa8d-cb6a0f145fe5",
+		"Deploy": {
+			"Destination": [
+				{
+					"CF": "GTT-SERV",
+					"MDK": "GTT-SERV",
+					"URL": ""
+				}
+			],
+			"Name": "ns.FrieghtAppDetail",
+			"Version": "1.0.0",
+			"AppRouter": "standalone",
+			"WebClient": {
+				"Runtime": "production",
+				"URL": "https://mdk-webclient-runtime.cfapps.us10.hana.ondemand.com/runtime/"
+			},
+			"Auth": true
+		}
+	},
+	"MobileService": {
+		"Type": "standard",
+		"AdminAPI": "https://mobile-service-cockpit-api.cfapps.us10.hana.ondemand.com/cockpit/v1/org/1d83ae9e-ab52-452e-bbd4-a8e4f5dc41f3/space/602083b7-bff4-4166-aa8d-cb6a0f145fe5",
+		"AppId": "FrieghtAppDetail",
+		"Destination": []
+	},
+	"Build": {
+		"SourceMap": true,
+		"TSTarget": "es6",
+		"WMF": true
+	}
+}

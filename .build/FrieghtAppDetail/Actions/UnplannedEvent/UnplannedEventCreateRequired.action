@@ -1,0 +1,11 @@
+{
+    "OnFailure": "/FrieghtAppDetail/Actions/UnplannedEvent/UnplannedEventRequiredFieldFailure.action",
+    "OnSuccess": "/FrieghtAppDetail/Rules/UnplannedEvent/PostUnplannedEvent.js",
+    "RequiredFields": [
+        "EventPkr",
+        "ReasonCodePkr"
+    ],
+    "_Type": "Action.Type.CheckRequiredFields",
+    "ShowActivityIndicator": true,
+    "ActivityIndicatorText" : "  "
+}

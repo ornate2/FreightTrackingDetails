@@ -1,0 +1,50 @@
+{
+    "Caption": "Material Details",
+    "ActionBar": {
+        "Items": [
+            {
+                "Position": "right",
+                "SystemItem": "Edit",
+                "OnPress": "/FrieghtAppDetail/Actions/ProofOfDelivery/ProofOfDeliveryMaterialUpdate.action"
+            }
+        ]
+    },
+    "Controls": [
+        {
+            "Sections": [
+                {
+                    "_Type": "Section.Type.KeyValue",
+                    "_Name": "MaterialDetailsSection",
+                    "Header": {
+                        "Caption": "Material Details"
+                    },
+                    "KeyAndValues": [
+                        {
+                            "KeyName": "Category",
+                            "Value": "{{#Property:PKG}}"
+                        },
+                        {
+                            "KeyName": "Description",
+                            "Value": "{{#Property:itemDesc}}"
+                        },
+                        {
+                            "KeyName": "product Id",
+                            "Value": "{{#Property:productId}}"
+                        },
+                        {
+                            "KeyName": "Display Quantity",
+                            "Value": "/FrieghtAppDetail/Rules/ProofOfDelivery/FormatRecievedQuantity.js"
+                        },
+                        {
+                            "KeyName": "Display Quantity",
+                            "Value": "/FrieghtAppDetail/Rules/ProofOfDelivery/FormatDisplayQuantity.js"
+                        }]
+                }
+            ],
+            "_Type": "Control.Type.SectionedTable",
+            "_Name": "SectionedTable"
+        }
+    ],
+    "_Type": "Page",
+    "_Name": "MaterialDetailsPage"
+}

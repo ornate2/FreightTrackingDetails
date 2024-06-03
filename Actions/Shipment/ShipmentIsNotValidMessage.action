@@ -1,0 +1,6 @@
+{
+    "_Type": "Action.Type.Message",
+   "Title": "Invalid Shipment",
+    "Message": "Shipment Number is not valid",
+    "OKCaption": "OK"
+}

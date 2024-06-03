@@ -1,0 +1,14 @@
+{
+	"_Type": "Action.Type.RestService.SendRequest",
+	"ActionResult": {
+		"_Name": "StoreFetchedMaterialItem"
+	},
+	"Target": {
+		"Service": "/FrieghtAppDetail/Services/FrieghtRestSrv.service",
+		"Path": "/FrieghtAppDetail/Rules/ProofOfDelivery/BuildMaterialItemPath.js",
+		"OutputPath": "/value",
+		"RequestProperties": {
+			"Method": "GET"
+		}
+	}
+}
