@@ -65,7 +65,7 @@ export default class {
     */
     static controlSetMaxLengthValidation(control, maxLength) {
         const valueLength = control.getValue().length;
-        return maxLength < valueLength ? CommonLibrary.executeInlineControlError(control, control, control.localizeText('exceeds_max_length_x_x', [valueLength, maxLength])) : CommonLibrary.clearValidationOnInput(control);
+        return maxLength < valueLength ? CommonLibrary.executeInlineControlError(control, control, control.localizeText(`exceeds_max_length_x_x`, [valueLength, maxLength])) : CommonLibrary.clearValidationOnInput(control);
     }
 
     /**
@@ -77,10 +77,10 @@ export default class {
     */
     static setValidationInlineErrors(context, controls, requiredControlNames, controlNameToMaxLength) {
         const unfilledRequiredControls = this.getUnfilledRequiredControls(controls, requiredControlNames);
-        unfilledRequiredControls.forEach(c => CommonLibrary.executeInlineControlError(context, c, context.localizeText('field_is_required')));
+        unfilledRequiredControls.forEach(c => CommonLibrary.executeInlineControlError(context, c, context.localizeText(`field_is_required`)));
 
         const maxLengthExceededControls = this.getMaxLengthExceededControls(controls, controlNameToMaxLength);  // we dont expect to have the same field being empty and exceeding the max char limit at the same time
-        maxLengthExceededControls.forEach(c => CommonLibrary.executeInlineControlError(context, c, context.localizeText('exceeds_max_length_x_x', [c.getValue().length, controlNameToMaxLength[c.getName()]])));
+        maxLengthExceededControls.forEach(c => CommonLibrary.executeInlineControlError(context, c, context.localizeText(`exceeds_max_length_x_x`, [c.getValue().length, controlNameToMaxLength[c.getName()]])));
 
         return [...unfilledRequiredControls, ...maxLengthExceededControls];
     }
@@ -134,7 +134,7 @@ class _DirectiveBase {
  * @returns {Promise<boolean>}
  */
 export function RequiredDirective(controlProxy, isRequiredPredicate = undefined) {
-    return new _DirectiveBase(controlProxy, (control) => control.localizeText('field_is_required'), (control) => !libThis.isControlEmpty(control), isRequiredPredicate).applyError();// eslint-disable-line no-unused-vars
+    return new _DirectiveBase(controlProxy, (control) => control.localizeText(`field_is_required`), (control) => !libThis.isControlEmpty(control), isRequiredPredicate).applyError();// eslint-disable-line no-unused-vars
 }
 
 /**

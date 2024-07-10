@@ -28,8 +28,7 @@
                 "WatermarkText":  "",
                 "WatermarkTextMaxLines": 5,
                 "TimestampFormatter": "MM/dd/yy hh:mm a zzz",
-                "HelperText": "",
-                "OnValueChange": ""
+                "HelperText": ""
             }]
         },{
                     "_Type": "Section.Type.FormCell",
@@ -42,15 +41,12 @@
                             "IsVisible": false,
                             "_Name": "AttachmentDescription",
                             "Value": "",
-                            "OnValueChange": "",
                             "_Type": "Control.Type.FormCell.SimpleProperty"
                         },
                          {
                             "_Type": "Fragment",
                             "Fragment": "/FrieghtAppDetail/Fragments/Documents/DocumentFormCell.fragment",
                             "Properties": {
-                                "Value": "",
-                                "OnValueChange": "",
                                 "IsEditable": true,
                                 "IsVisible": true                         
                             }

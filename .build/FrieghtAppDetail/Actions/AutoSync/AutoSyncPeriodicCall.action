@@ -1,6 +1,0 @@
-{
-    "_Type": "Action.Type.Message",
-   "Title": "This is Periodic Call",
-    "Message": "This is Periodic Call",
-    "OKCaption": "OK"
-}

@@ -52,8 +52,8 @@ export default class {
     static showErrorDialog(
         clientAPI,
         messageText,
-        captionText = clientAPI.localizeText('validation_error'),
-        okButtonText = clientAPI.localizeText('ok')) {
+        captionText = clientAPI.localizeText(`validation_error`),
+        okButtonText = clientAPI.localizeText(`ok`)) {
         clientAPI.dismissActivityIndicator();
         clientAPI.dismissActivityIndicator();
 
@@ -67,7 +67,7 @@ export default class {
             clientAPI.getPageProxy().getClientData().DialogOkCaption = okButtonText;
         }
 
-        return clientAPI.executeAction('/SAPAssetManager/Actions/Common/GenericErrorDialog.action').then(function() {
+        return clientAPI.executeAction(`/SAPAssetManager/Actions/Common/GenericErrorDialog.action`).then(function() {
             return Promise.reject(false);
         });
     }
@@ -86,9 +86,9 @@ export default class {
     static showWarningDialog(
         clientAPI,
         messageText,
-        captionText = clientAPI.localizeText('validation_warning'),
-        okButtonText = clientAPI.localizeText('ok'),
-        cancelButtonText = clientAPI.localizeText('cancel')) {
+        captionText = clientAPI.localizeText(`validation_warning`),
+        okButtonText = clientAPI.localizeText(`ok`),
+        cancelButtonText = clientAPI.localizeText(`cancel`)) {
         clientAPI.dismissActivityIndicator();
 
         if (!clientAPI.getPageProxy) {
@@ -103,7 +103,7 @@ export default class {
             clientAPI.getPageProxy().getClientData().DialogCancelCaption = cancelButtonText;
         }
 
-        return clientAPI.executeAction('/SAPAssetManager/Actions/Common/GenericWarningDialog.action').then(function(result) {
+        return clientAPI.executeAction(`/SAPAssetManager/Actions/Common/GenericWarningDialog.action`).then(function(result) {
             if (result.data === true) {
                 return Promise.resolve(true);
             } else {
@@ -130,7 +130,7 @@ export default class {
                 field = this.getTargetPathValue(clientAPI, '#Control:' + name + '/#Value', keyVal, dict, trim);
             } catch (err) {
                 /**Implementing our Logger class*/
-                Logger.error(clientAPI.getGlobalDefinition('/SAPAssetManager/Globals/Logs/CategoryCommon.global').getValue(), err.message);
+                Logger.error(clientAPI.getGlobalDefinition(`/SAPAssetManager/Globals/Logs/CategoryCommon.global`).getValue(), err.message);
             }
             return field;
         }
@@ -152,7 +152,7 @@ export default class {
             value = clientAPI.evaluateTargetPath(path);
         } catch (err) {
             /**Implementing our Logger class*/
-            Logger.error(clientAPI.getGlobalDefinition('/SAPAssetManager/Globals/Logs/CategoryCommon.global').getValue(), 'getTargetPathValue: ' + err.message);
+            Logger.error(clientAPI.getGlobalDefinition(`/SAPAssetManager/Globals/Logs/CategoryCommon.global`).getValue(), 'getTargetPathValue: ' + err.message);
         }
 
         if (libVal.evalIsEmpty(value)) value = ''; //SnowBlind is returning undefined for screen controls that have no value :-(
@@ -229,7 +229,7 @@ export default class {
      */
     static redrawPageSection(context, pageName, sectionName) {
         /**Implementing our Logger class*/
-        Logger.debug(context.getGlobalDefinition('/SAPAssetManager/Globals/Logs/CategoryCommon.global').getValue(), `Called CommonLibrary.redrawPageSection(context, ${pageName}, ${sectionName})`);
+        Logger.debug(context.getGlobalDefinition(`/SAPAssetManager/Globals/Logs/CategoryCommon.global`).getValue(), `Called CommonLibrary.redrawPageSection(context, ${pageName}, ${sectionName})`);
         try {
             let pageProxy = context.evaluateTargetPathForAPI('#Page:' + pageName);
             if (pageProxy) {
@@ -240,7 +240,7 @@ export default class {
             }
         } catch (err) {
             /**Implementing our Logger class*/
-            Logger.error(context.getGlobalDefinition('/SAPAssetManager/Globals/Logs/CategoryCommon.global').getValue(), `CommonLibrary.redrawPageSection(context, ${pageName}, ${sectionName}) error: ${err}`);
+            Logger.error(context.getGlobalDefinition(`/SAPAssetManager/Globals/Logs/CategoryCommon.global`).getValue(), `CommonLibrary.redrawPageSection(context, ${pageName}, ${sectionName}) error: ${err}`);
         }
     }
     /**
@@ -355,7 +355,7 @@ export default class {
                 delete pageData[keys];
             }
         } catch (err) {
-            Logger.error(clientAPI.getGlobalDefinition('/SAPAssetManager/Globals/Logs/CategoryCommon.global').getValue(), err);
+            Logger.error(clientAPI.getGlobalDefinition(`/SAPAssetManager/Globals/Logs/CategoryCommon.global`).getValue(), err);
         }
     }
 
@@ -367,7 +367,7 @@ export default class {
         try {
             clientAPI.getAppClientData().StateVariables = {};
         } catch (err) {
-            Logger.error(clientAPI.getGlobalDefinition('/SAPAssetManager/Globals/Logs/CategoryCommon.global').getValue(), err);
+            Logger.error(clientAPI.getGlobalDefinition(`/SAPAssetManager/Globals/Logs/CategoryCommon.global`).getValue(), err);
         }
     }
 
@@ -394,7 +394,7 @@ export default class {
                 delete pageData[keys];
             }
         } catch (err) {
-            Logger.error(clientAPI.getGlobalDefinition('/SAPAssetManager/Globals/Logs/CategoryCommon.global').getValue(), err);
+            Logger.error(clientAPI.getGlobalDefinition(`/SAPAssetManager/Globals/Logs/CategoryCommon.global`).getValue(), err);
         }
     }
 
@@ -612,25 +612,25 @@ export default class {
         var dt = '';
         switch (date.getDay()) {
             case 0:
-                dt = clientAPI.localizeText('day0');
+                dt = clientAPI.localizeText(`day0`);
                 break;
             case 1:
-                dt = clientAPI.localizeText('day1');
+                dt = clientAPI.localizeText(`day1`);
                 break;
             case 2:
-                dt = clientAPI.localizeText('day2');
+                dt = clientAPI.localizeText(`day2`);
                 break;
             case 3:
-                dt = clientAPI.localizeText('day3');
+                dt = clientAPI.localizeText(`day3`);
                 break;
             case 4:
-                dt = clientAPI.localizeText('day4');
+                dt = clientAPI.localizeText(`day4`);
                 break;
             case 5:
-                dt = clientAPI.localizeText('day5');
+                dt = clientAPI.localizeText(`day5`);
                 break;
             case 6:
-                dt = clientAPI.localizeText('day6');
+                dt = clientAPI.localizeText(`day6`);
                 break;
             default:
                 dt = 'unknown day';
@@ -660,11 +660,11 @@ export default class {
         if (milliDelta < 0) {
             if (milliDelta >= -1 * dayInMillis) {
                 // yesterday
-                return clientApi.localizeText('day_yesterday');
+                return clientApi.localizeText(`day_yesterday`);
             }
         } else if (milliDelta < dayInMillis) {
             // Today
-            return clientApi.localizeText('day_today');
+            return clientApi.localizeText(`day_today`);
         }
         return this.dateToDayOfWeek(date, clientApi);
     }
@@ -693,7 +693,7 @@ export default class {
     static getControlProxy(
         pageProxy,
         name,
-        containerName = pageProxy.getGlobalDefinition('/SAPAssetManager/Globals/DefaultMessages/DefaultFormCellContainerControlName.global').getValue()) {
+        containerName = pageProxy.getGlobalDefinition(`/SAPAssetManager/Globals/DefaultMessages/DefaultFormCellContainerControlName.global`).getValue()) {
 
         let container = pageProxy.getControl(containerName);
         if (container) {
@@ -722,7 +722,7 @@ export default class {
         let row = GlobalClass.getUserGeneralInfo();
         if (!row) {
             /**Implementing our Logger class*/
-            Logger.error(pageClientAPI.getGlobalDefinition('/SAPAssetManager/Globals/Logs/CategoryCommon.global').getValue(), 'getUserProperty: Error - In memory row does not exist.');
+            Logger.error(pageClientAPI.getGlobalDefinition(`/SAPAssetManager/Globals/Logs/CategoryCommon.global`).getValue(), 'getUserProperty: Error - In memory row does not exist.');
         } else {
             if (Object.prototype.hasOwnProperty.call(row, propertyName)) {
                 propertyValue = row[propertyName];
@@ -751,7 +751,7 @@ export default class {
      * @param {*} context
      */
     static getMileageActivityType(context) {
-        return this.getAppParam(context, context.getGlobalDefinition('/SAPAssetManager/Globals/Mileage/MileageGroup.global').getValue(), 'MileageActivityType');
+        return this.getAppParam(context, context.getGlobalDefinition(`/SAPAssetManager/Globals/Mileage/MileageGroup.global`).getValue(), 'MileageActivityType');
     }
 
     /**
@@ -759,7 +759,7 @@ export default class {
      * @param {*} context
      */
     static getMileageUOM(context) {
-        return this.getAppParam(context, context.getGlobalDefinition('/SAPAssetManager/Globals/Mileage/MileageGroup.global').getValue(), 'MileageUOM');
+        return this.getAppParam(context, context.getGlobalDefinition(`/SAPAssetManager/Globals/Mileage/MileageGroup.global`).getValue(), 'MileageUOM');
     }
 
     /**
@@ -767,7 +767,7 @@ export default class {
      * @param {*} context
      */
     static getMileageWorkCenter(context) {
-        return this.getAppParam(context, context.getGlobalDefinition('/SAPAssetManager/Globals/Mileage/MileageGroup.global').getValue(), 'MileageWorkCenter');
+        return this.getAppParam(context, context.getGlobalDefinition(`/SAPAssetManager/Globals/Mileage/MileageGroup.global`).getValue(), 'MileageWorkCenter');
     }
 
     /**
@@ -775,7 +775,7 @@ export default class {
      * @param {*} context
      */
     static getExpenseActivityType(context) {
-        return this.getAppParam(context, context.getGlobalDefinition('/SAPAssetManager/Globals/Expense/Expenses.global').getValue(), 'ExpenseActivityType') || '';
+        return this.getAppParam(context, context.getGlobalDefinition(`/SAPAssetManager/Globals/Expense/Expenses.global`).getValue(), 'ExpenseActivityType') || '';
     }
 
     /**
@@ -783,12 +783,12 @@ export default class {
      * @param {*} context
      */
     static getExpenseWorkCenter(context) {
-        return this.getAppParam(context, context.getGlobalDefinition('/SAPAssetManager/Globals/Expense/Expenses.global').getValue(), 'ExpenseWorkCenter') || '';
+        return this.getAppParam(context, context.getGlobalDefinition(`/SAPAssetManager/Globals/Expense/Expenses.global`).getValue(), 'ExpenseWorkCenter') || '';
     }
 
 
     static getSetUsage(context) {
-        return this.getAppParam(context, context.getGlobalDefinition('/SAPAssetManager/Globals/InspectionLots/InspectionLot.global').getValue(), 'SetUsage');
+        return this.getAppParam(context, context.getGlobalDefinition(`/SAPAssetManager/Globals/InspectionLots/InspectionLot.global`).getValue(), 'SetUsage');
     }
 
     static getUserDefaultWorkCenter() {
@@ -839,7 +839,7 @@ export default class {
             });
             return statuses;
         } catch (exc) {
-            Logger.error(context.getGlobalDefinition('/SAPAssetManager/Globals/Logs/CategoryConfiguration.global').getValue(), 'MOBILESTATUS_TIMELINE_SEQ_OPERATION was not set on the App Params configuration');
+            Logger.error(context.getGlobalDefinition(`/SAPAssetManager/Globals/Logs/CategoryConfiguration.global`).getValue(), 'MOBILESTATUS_TIMELINE_SEQ_OPERATION was not set on the App Params configuration');
             return [];
         }
     }
@@ -852,7 +852,7 @@ export default class {
             });
             return statuses;
         } catch (exc) {
-            Logger.error(context.getGlobalDefinition('/SAPAssetManager/Globals/Logs/CategoryConfiguration.global').getValue(), 'MOBILESTATUS_TIMELINE_SEQ_S4ITEM was not set on the App Params configuration');
+            Logger.error(context.getGlobalDefinition(`/SAPAssetManager/Globals/Logs/CategoryConfiguration.global`).getValue(), 'MOBILESTATUS_TIMELINE_SEQ_S4ITEM was not set on the App Params configuration');
             return [];
         }
     }
@@ -865,7 +865,7 @@ export default class {
             });
             return statuses;
         } catch (exc) {
-            Logger.error(context.getGlobalDefinition('/SAPAssetManager/Globals/Logs/CategoryConfiguration.global').getValue(), 'MOBILESTATUS_TIMELINE_SEQ_WORKORDER was not set on the App Params configuration');
+            Logger.error(context.getGlobalDefinition(`/SAPAssetManager/Globals/Logs/CategoryConfiguration.global`).getValue(), 'MOBILESTATUS_TIMELINE_SEQ_WORKORDER was not set on the App Params configuration');
             return [];
         }
 
@@ -879,7 +879,7 @@ export default class {
             });
             return statuses;
         } catch (exc) {
-            Logger.error(context.getGlobalDefinition('/SAPAssetManager/Globals/Logs/CategoryConfiguration.global').getValue(), 'MOBILESTATUS_TIMELINE_SEQ_S4ORDER was not set on the App Params configuration');
+            Logger.error(context.getGlobalDefinition(`/SAPAssetManager/Globals/Logs/CategoryConfiguration.global`).getValue(), 'MOBILESTATUS_TIMELINE_SEQ_S4ORDER was not set on the App Params configuration');
             return [];
         }
 
@@ -911,12 +911,12 @@ export default class {
         var propertyValue = '';
         var filter = "$filter=SystemSettingGroup eq '" + groupName + "' and SystemSettingName eq '" + propertyName + "'";
 
-        return pageClientAPI.read('/SAPAssetManager/Services/AssetManager.service', 'UserSystemInfos', [], filter).then(userSystemInfo => {
+        return pageClientAPI.read(`/SAPAssetManager/Services/AssetManager.service`, 'UserSystemInfos', [], filter).then(userSystemInfo => {
             if (userSystemInfo.length > 0) {
                 propertyValue = userSystemInfo.getItem(0).SystemSettingValue;
             }
             if (libVal.evalIsEmpty(propertyValue)) {
-                Logger.error(pageClientAPI.getGlobalDefinition('/SAPAssetManager/Globals/Logs/CategoryConfiguration.global').getValue(), propertyName + ' in  ' + groupName + ' was not set on User System Properties');
+                Logger.error(pageClientAPI.getGlobalDefinition(`/SAPAssetManager/Globals/Logs/CategoryConfiguration.global`).getValue(), propertyName + ' in  ' + groupName + ' was not set on User System Properties');
                 return '';
             } else {
                 return propertyValue;
@@ -936,13 +936,13 @@ export default class {
     /**
      * Gets a count of rows
      */
-    static getEntitySetCount(clientAPI, entitySet, queryOptions, service = '/SAPAssetManager/Services/AssetManager.service') {
+    static getEntitySetCount(clientAPI, entitySet, queryOptions, service = `/SAPAssetManager/Services/AssetManager.service`) {
 
         return clientAPI.count(service, entitySet, queryOptions).then((result) => {
             return result;
         }).catch(err => {
             /**Implementing our Logger class*/
-            Logger.error(clientAPI.getGlobalDefinition('/SAPAssetManager/Globals/Logs/CategoryCommon.global').getValue(), err);
+            Logger.error(clientAPI.getGlobalDefinition(`/SAPAssetManager/Globals/Logs/CategoryCommon.global`).getValue(), err);
             return 0;
         });
     }
@@ -953,11 +953,11 @@ export default class {
     static getEntitySetCountOnline(clientAPI, entitySet, queryOptions) {
         // Removing unnecessary code as we only need to initialize the service once.
 
-        return clientAPI.count('/SAPAssetManager/Services/OnlineAssetManager.service', entitySet, queryOptions).then((result) => {
+        return clientAPI.count(`/SAPAssetManager/Services/OnlineAssetManager.service`, entitySet, queryOptions).then((result) => {
             return result;
         }).catch(err => {
             /**Implementing our Logger class*/
-            Logger.error(clientAPI.getGlobalDefinition('/SAPAssetManager/Globals/Logs/CategoryCommon.global').getValue(), err);
+            Logger.error(clientAPI.getGlobalDefinition(`/SAPAssetManager/Globals/Logs/CategoryCommon.global`).getValue(), err);
             return 0;
         });
     }
@@ -996,7 +996,7 @@ export default class {
         try {
             return GlobalClass.getAppParam()[paramGroup][paramName];
         } catch (exc) {
-            Logger.error(pageProxy.getGlobalDefinition('/SAPAssetManager/Globals/Logs/CategoryConfiguration.global').getValue(), `${exc}: ${paramName} ${paramGroup} was not set on the App Params configuration`);
+            Logger.error(pageProxy.getGlobalDefinition(`/SAPAssetManager/Globals/Logs/CategoryConfiguration.global`).getValue(), `${exc}: ${paramName} ${paramGroup} was not set on the App Params configuration`);
             return undefined;
         }
     }
@@ -1284,7 +1284,7 @@ export default class {
     }
 
     static navigateOnRead(context, navAction, readLink = context.getBindingObject()['@odata.readLink'], queryOption = '') {
-        return context.read('/SAPAssetManager/Services/AssetManager.service', readLink, [], queryOption).then(result => {
+        return context.read(`/SAPAssetManager/Services/AssetManager.service`, readLink, [], queryOption).then(result => {
             if (!libVal.evalIsEmpty(result)) {
                 if (context.setActionBinding)
                     context.setActionBinding(result.getItem(0));
@@ -1322,7 +1322,7 @@ export default class {
             //Get clientData from current page if it was not passed in
             cacheStore = cacheStore || context.getPageProxy().getClientData();
             if (!cacheStore[entitySet]) {
-                return context.read('/SAPAssetManager/Services/AssetManager.service', entitySet, [], queryOptions).then(results => {
+                return context.read(`/SAPAssetManager/Services/AssetManager.service`, entitySet, [], queryOptions).then(results => {
                     if (results.length > 0) {
                         if (!cacheStore[entitySet]) {
                             let dictionary = {};
@@ -1358,7 +1358,7 @@ export default class {
             }
         } catch (err) {
             /**Implementing our Logger class*/
-            Logger.error(context.getGlobalDefinition('/SAPAssetManager/Globals/Logs/CategoryCommon.global').getValue(), `cacheEntity error: ${err}`);
+            Logger.error(context.getGlobalDefinition(`/SAPAssetManager/Globals/Logs/CategoryCommon.global`).getValue(), `cacheEntity error: ${err}`);
             return Promise.resolve();
         }
     }
@@ -1383,7 +1383,7 @@ export default class {
                     try {
                         return cacheStore[entitySet][keyValue][returnProperty];
                     } catch (error) {
-                        Logger.error(context.getGlobalDefinition('/SAPAssetManager/Globals/Logs/CategoryCommon.global').getValue(), error.message + error.stack);
+                        Logger.error(context.getGlobalDefinition(`/SAPAssetManager/Globals/Logs/CategoryCommon.global`).getValue(), error.message + error.stack);
                         return '';
                     }
                 });
@@ -1392,7 +1392,7 @@ export default class {
             }
         } catch (err) {
             /**Implementing our Logger class*/
-            Logger.error(context.getGlobalDefinition('/SAPAssetManager/Globals/Logs/CategoryCommon.global').getValue(), `getValueFromCache error: ${err}`);
+            Logger.error(context.getGlobalDefinition(`/SAPAssetManager/Globals/Logs/CategoryCommon.global`).getValue(), `getValueFromCache error: ${err}`);
             return Promise.resolve('');
         }
     }
@@ -1472,7 +1472,7 @@ export default class {
 
     static shouldDisplayPriorityIcon(context, priority) {
         if (priority < 3 || priority === '*') {
-            return IsAndroid(context) ? '/SAPAssetManager/Images/high_priority_icon.android.png' : '/SAPAssetManager/Images/high_priority_icon.png';
+            return IsAndroid(context) ? `/SAPAssetManager/Images/high_priority_icon.android.png` : `/SAPAssetManager/Images/high_priority_icon.png`;
         }
         return '';
     }
@@ -1485,7 +1485,7 @@ export default class {
      */
 
     static getEntityProperty(context, entityPath, propertyName, expand = '') {
-        return context.read('/SAPAssetManager/Services/AssetManager.service', entityPath, [], expand ? `$expand=${expand}` : '').then(function(value) {
+        return context.read(`/SAPAssetManager/Services/AssetManager.service`, entityPath, [], expand ? `$expand=${expand}` : '').then(function(value) {
             value = value.getItem(0);
             return value[propertyName];
         });
@@ -1519,7 +1519,7 @@ export default class {
                 });
             }
         } catch (exc) {
-            Logger.debug(context.getGlobalDefinition('/SAPAssetManager/Globals/Logs/CategoryCommon.global').getValue(), `Can't enable toolbar on page ${pageName}`);
+            Logger.debug(context.getGlobalDefinition(`/SAPAssetManager/Globals/Logs/CategoryCommon.global`).getValue(), `Can't enable toolbar on page ${pageName}`);
             return Promise.resolve();
         }
         return Promise.resolve();
@@ -1753,7 +1753,7 @@ export default class {
             });
             clientData.controlDefaults = {};
             clientData.controlDefaults.valueString = valueString;
-            Logger.debug(context.getGlobalDefinition('/SAPAssetManager/Globals/Logs/CategoryCommon.global').getValue(), 'Start Values:' + valueString);
+            Logger.debug(context.getGlobalDefinition(`/SAPAssetManager/Globals/Logs/CategoryCommon.global`).getValue(), 'Start Values:' + valueString);
         }, 200);
     }
 
@@ -1769,7 +1769,7 @@ export default class {
             let control = controls[key];
             valueString += libThis.getControlValue(control);
         });
-        Logger.debug(context.getGlobalDefinition('/SAPAssetManager/Globals/Logs/CategoryCommon.global').getValue(), 'Final Values:' + valueString);
+        Logger.debug(context.getGlobalDefinition(`/SAPAssetManager/Globals/Logs/CategoryCommon.global`).getValue(), 'Final Values:' + valueString);
         if (!libThis.isDefined(clientData.controlDefaults)) {
             return true;
         } else {
@@ -1862,9 +1862,9 @@ export default class {
         var dateText = '';
 
         if (dateTime.toDateString() === today.toDateString()) {
-            dateText = clientAPI.localizeText('today');
+            dateText = clientAPI.localizeText(`today`);
         } else if (dateTime.toDateString() === tomorrow.toDateString()) {
-            dateText = clientAPI.localizeText('tomorrow');
+            dateText = clientAPI.localizeText(`tomorrow`);
         } else {
             dateText = clientAPI.formatDate(dateTime);
         }
@@ -1875,7 +1875,7 @@ export default class {
 
     static getVendorName(clientAPI, vendorId) {
         var queryOption = "$filter=Vendor eq '" + vendorId + "'";
-        return clientAPI.read('/SAPAssetManager/Services/AssetManager.service', 'Vendors', [], queryOption).then((result) => {
+        return clientAPI.read(`/SAPAssetManager/Services/AssetManager.service`, 'Vendors', [], queryOption).then((result) => {
             if (result && result.length > 0) {
                 return result.getItem(0).Vendor + ' - ' + result.getItem(0).Name1;
             } else {
@@ -1886,7 +1886,7 @@ export default class {
 
     static getPlantName(clientAPI, plantId) {
         var queryOptions = "$filter=Plant eq '" + plantId + "'";
-        return clientAPI.read('/SAPAssetManager/Services/AssetManager.service', 'Plants', [], queryOptions).then((result) => {
+        return clientAPI.read(`/SAPAssetManager/Services/AssetManager.service`, 'Plants', [], queryOptions).then((result) => {
             if (result && result.length > 0) {
                 return result.getItem(0).Plant + ' - ' + result.getItem(0).PlantDescription;
             }
@@ -1896,7 +1896,7 @@ export default class {
 
     static getStorageLocationName(clientAPI, plantId, storageLocationId) {
         var queryOptions = "$filter=Plant eq '" + plantId + "' and StorageLocation eq '" + storageLocationId + "'";
-        return clientAPI.read('/SAPAssetManager/Services/AssetManager.service', 'StorageLocations', [], queryOptions).then((result) => {
+        return clientAPI.read(`/SAPAssetManager/Services/AssetManager.service`, 'StorageLocations', [], queryOptions).then((result) => {
             if (result && result.length > 0) {
                 return result.getItem(0).StorageLocation + ' - ' + result.getItem(0).StorageLocationDesc;
             }
@@ -1906,7 +1906,7 @@ export default class {
 
     static getCustomerName(clientAPI, customerId) {
         var queryOptions = "$filter=Customer eq '" + customerId + "'";
-        return clientAPI.read('/SAPAssetManager/Services/AssetManager.service', 'Customers', [], queryOptions).then((result) => {
+        return clientAPI.read(`/SAPAssetManager/Services/AssetManager.service`, 'Customers', [], queryOptions).then((result) => {
             if (result && result.length > 0) {
                 return result.getItem(0).Name1;
             } else {
@@ -1922,7 +1922,7 @@ export default class {
         if (noteValue && noteValue.length > charLimit) {
             let note = noteValue.substring(0, charLimit);
             context.setValue(note);
-            this.setInlineControlError(context, context, context.localizeText('validation_maximum_field_length', [charLimit]));
+            this.setInlineControlError(context, context, context.localizeText(`validation_maximum_field_length`, [charLimit]));
             context.applyValidation();
         } else {
             if (noteValue.length < charLimit) {
@@ -1946,7 +1946,7 @@ export default class {
         let plant = '';
 
         if (externalWorkCenterId) {
-            return clientAPI.read('/SAPAssetManager/Services/AssetManager.service', 'WorkCenters', ['PlantId'], `$filter=ExternalWorkCenterId eq '${externalWorkCenterId}'`).then((workCenterArray) => {
+            return clientAPI.read(`/SAPAssetManager/Services/AssetManager.service`, 'WorkCenters', ['PlantId'], `$filter=ExternalWorkCenterId eq '${externalWorkCenterId}'`).then((workCenterArray) => {
                 if (workCenterArray.length > 0) {
                     plant = workCenterArray.getItem(0).PlantId;
                 }
@@ -2010,7 +2010,7 @@ export default class {
     }*/
 
     static isOnlineServiceInitialized(context) {
-        let provider = context.getODataProvider('/SAPAssetManager/Services/OnlineAssetManager.service');
+        let provider = context.getODataProvider(`/SAPAssetManager/Services/OnlineAssetManager.service`);
         return provider.isInitialized();
     }
 

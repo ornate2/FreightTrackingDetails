@@ -1,7 +1,5 @@
 {
     "Caption": "Proof of Delivery - Reporting",
-	"OnLoaded": "",
-    "OnReturning": "",
     "ActionBar": {
         "Items": [
             {
