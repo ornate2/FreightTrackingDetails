@@ -1,8 +1,0 @@
-{
-	"_Type": "Action.Type.Navigation",
-	"ActionResult": {
-		"_Name": "NavToShipmentList"
-	},
-	"PageToOpen": "/FrieghtAppDetail/Pages/Shipment/ShipmentListView.page",
-	"NavigationType": "Inner"
-}

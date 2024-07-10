@@ -6,30 +6,13 @@
 	},
 	"CF": {
 		"Target": "https://api.cf.us10-001.hana.ondemand.com",
-		"Organization": "1d83ae9e-ab52-452e-bbd4-a8e4f5dc41f3",
-		"Space": "602083b7-bff4-4166-aa8d-cb6a0f145fe5",
-		"Deploy": {
-			"Destination": [
-				{
-					"CF": "GTT-SERV",
-					"MDK": "GTT-SERV",
-					"URL": ""
-				}
-			],
-			"Name": "ns.FrieghtAppDetail",
-			"Version": "1.0.0",
-			"AppRouter": "standalone",
-			"WebClient": {
-				"Runtime": "production",
-				"URL": "https://mdk-webclient-runtime.cfapps.us10.hana.ondemand.com/runtime/"
-			},
-			"Auth": true
-		}
+		"Organization": "c30c75ab-d680-4e85-ad43-6ace3fea7cef",
+		"Space": "75b5120c-700c-453b-a001-b556f1486ed6"
 	},
 	"MobileService": {
 		"Type": "standard",
-		"AdminAPI": "https://mobile-service-cockpit-api.cfapps.us10.hana.ondemand.com/cockpit/v1/org/1d83ae9e-ab52-452e-bbd4-a8e4f5dc41f3/space/602083b7-bff4-4166-aa8d-cb6a0f145fe5",
-		"AppId": "FrieghtAppDetail",
+		"AdminAPI": "https://mobile-service-cockpit-api.cfapps.us10.hana.ondemand.com/cockpit/v1/org/c30c75ab-d680-4e85-ad43-6ace3fea7cef/space/75b5120c-700c-453b-a001-b556f1486ed6",
+		"AppId": "com.sap.mdk.demo",
 		"Destination": []
 	},
 	"Build": {
